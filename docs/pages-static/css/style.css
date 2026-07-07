@@ -1,0 +1,432 @@
+/* 「道途」- 水墨沉兰 · 修真 */
+:root {
+  --ink-bg: #2c4a3e;
+  --ink-bg-deep: #1f3329;
+  --paper: #f5f0e6;
+  --paper-dim: #e8e1cf;
+  --gold: #c9a961;
+  --gold-bright: #e5c878;
+  --jade: #7d9d8c;
+  --mist: rgba(245, 240, 230, 0.06);
+  --text-main: #f5f0e6;
+  --text-sub: rgba(245, 240, 230, 0.7);
+  --text-faint: rgba(245, 240, 230, 0.45);
+  --border: rgba(245, 240, 230, 0.15);
+  --border-strong: rgba(245, 240, 230, 0.3);
+  --shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  background: var(--ink-bg);
+  color: var(--text-main);
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(125, 157, 140, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(201, 169, 97, 0.12), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 顶栏 */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink-bg-deep);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--gold);
+  color: var(--ink-bg-deep);
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 28px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+}
+.brand-title { font-size: 18px; font-weight: 700; letter-spacing: 4px; }
+.brand-sub { font-size: 11px; color: var(--text-sub); letter-spacing: 2px; }
+.dao-name-wrap { display: flex; align-items: center; gap: 6px; }
+.dao-name {
+  font-size: 14px;
+  color: var(--gold);
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* 主区 */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* 卡片公共 */
+.realm-card, .stats-grid, .chart-card, .hist-card, .scroll-card, .cult-section {
+  background: var(--mist);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 18px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.section-title {
+  font-size: 13px;
+  color: var(--text-sub);
+  letter-spacing: 6px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 14px;
+}
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 4px; height: 14px;
+  transform: translateY(-50%);
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* 境界卡片 */
+.realm-card { padding: 28px 22px; text-align: center; }
+.realm-name {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 38px;
+  color: var(--gold);
+  letter-spacing: 8px;
+  margin-bottom: 6px;
+}
+.realm-sub { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; }
+.progress-block { margin-top: 18px; }
+.progress-track {
+  height: 6px;
+  background: rgba(245, 240, 230, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--jade), var(--gold));
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 999px;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.progress-label .progress-sep { color: var(--text-faint); }
+.progress-pct { color: var(--gold); font-weight: 600; margin-left: 6px; }
+.progress-next { font-size: 12px; color: var(--text-faint); margin-top: 6px; letter-spacing: 1px; }
+
+/* 修炼网格 */
+.cult-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cult-btn {
+  background: rgba(245, 240, 230, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 8px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.cult-btn:active { transform: scale(0.96); background: rgba(201, 169, 97, 0.15); border-color: var(--gold); }
+.cult-icon {
+  width: 44px; height: 44px;
+  background: var(--gold);
+  color: var(--ink-bg-deep);
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.cult-label { font-size: 16px; font-weight: 600; letter-spacing: 2px; }
+.cult-meta { font-size: 11px; color: var(--text-sub); line-height: 1.4; text-align: center; }
+
+/* 四宫格 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 16px;
+}
+.stat-card {
+  background: rgba(245, 240, 230, 0.04);
+  border-radius: 10px;
+  padding: 14px 6px;
+  text-align: center;
+}
+.stat-label { font-size: 11px; color: var(--text-faint); letter-spacing: 2px; }
+.stat-value {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 26px;
+  color: var(--gold);
+  margin: 4px 0 2px;
+  font-weight: 700;
+}
+.stat-unit { font-size: 10px; color: var(--text-faint); }
+
+/* 折线图 */
+.chart-card { padding-bottom: 16px; }
+#chart { width: 100%; height: 80px; margin-bottom: 6px; }
+.chart-axis {
+  display: flex; justify-content: space-between;
+  font-size: 10px; color: var(--text-faint);
+  letter-spacing: 1px;
+}
+
+/* 历史 */
+.hist-list, .scroll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hist-item, .scroll-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px;
+  border-bottom: 1px dashed var(--border);
+  font-size: 14px;
+}
+.hist-item:last-child, .scroll-item:last-child { border-bottom: 0; }
+.hist-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--jade);
+  color: var(--ink-bg-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 18px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.hist-text { flex: 1; min-width: 0; }
+.hist-title { font-size: 14px; }
+.hist-meta { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+.hist-xi { color: var(--gold); font-weight: 600; font-size: 14px; }
+
+.scroll-item .scroll-icon { font-size: 22px; margin-right: 12px; }
+.scroll-name { color: var(--gold); font-family: 'Ma Shan Zheng', cursive; font-size: 16px; letter-spacing: 2px; }
+.scroll-meta { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+.scroll-empty { color: var(--text-faint); font-size: 13px; text-align: center; padding: 18px 0; }
+
+.empty { color: var(--text-faint); font-size: 13px; text-align: center; padding: 18px 0; }
+.footer-line {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 4px;
+  margin-top: 30px;
+}
+
+/* 按钮 */
+.primary-btn, .ghost-btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.primary-btn {
+  background: var(--gold);
+  color: var(--ink-bg-deep);
+  border: 0;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.primary-btn:active { transform: scale(0.96); }
+.ghost-btn {
+  background: transparent;
+  color: var(--text-sub);
+  border: 1px solid var(--border-strong);
+}
+.ghost-btn:active { transform: scale(0.96); }
+.primary-btn.big, .ghost-btn.big { padding: 14px 22px; font-size: 15px; flex: 1; }
+
+/* Modal */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s;
+}
+.modal {
+  width: 90%;
+  max-width: 400px;
+  background: var(--ink-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 28px 22px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+.modal-title {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 4px;
+  margin-bottom: 4px;
+}
+.modal-sub {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-bottom: 16px;
+}
+.modal-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(245, 240, 230, 0.05);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.modal-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(245, 240, 230, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 13px;
+  margin-bottom: 10px;
+  min-height: 60px;
+  resize: vertical;
+}
+.modal-meta { text-align: center; font-size: 12px; color: var(--text-sub); margin-bottom: 18px; }
+.modal-actions { display: flex; gap: 10px; }
+
+/* Ceremony — 突破仪式全屏 */
+.ceremony-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: radial-gradient(circle at center, #1f3329 0%, #0c1612 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ceremonyEnter 0.6s;
+  overflow: hidden;
+}
+.ceremony {
+  position: relative;
+  text-align: center;
+  padding: 40px;
+  z-index: 2;
+}
+.ceremony-light {
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(229, 200, 120, 0.6) 0%, transparent 60%);
+  filter: blur(20px);
+  animation: ceremonyLightPulse 3s infinite ease-in-out;
+}
+.ceremony-seal {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 120px;
+  color: var(--gold);
+  text-shadow: 0 0 40px rgba(229, 200, 120, 0.6);
+  margin-bottom: 10px;
+}
+.ceremony-realm {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 38px;
+  color: var(--paper);
+  letter-spacing: 12px;
+  margin-bottom: 16px;
+}
+.ceremony-msg {
+  font-size: 14px;
+  color: var(--text-sub);
+  margin-bottom: 24px;
+  letter-spacing: 4px;
+}
+.ceremony-skill {
+  font-size: 16px;
+  color: var(--gold);
+  font-family: 'Ma Shan Zheng', cursive;
+  letter-spacing: 6px;
+  margin-bottom: 36px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink-bg-deep);
+  color: var(--gold);
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  font-size: 14px;
+  z-index: 400;
+  animation: toastIn 0.3s;
+  box-shadow: var(--shadow-soft);
+}
+
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes ceremonyEnter { from { opacity: 0 } to { opacity: 1 } }
+@keyframes ceremonyLightPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 380px) {
+  .cult-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}

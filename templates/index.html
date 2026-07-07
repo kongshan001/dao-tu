@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>道途 — 健康修仙</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 顶栏 -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">道</span>
+      <div>
+        <div class="brand-title">道途</div>
+        <div class="brand-sub">精进 · 修真</div>
+      </div>
+    </div>
+    <div class="dao-name-wrap">
+      <span class="dao-name" id="daoName">道友</span>
+      <button class="ghost-btn" id="renameBtn" title="改名">×</button>
+    </div>
+  </div>
+</header>
+
+<!-- 主页:境界 + 修为进度 -->
+<main id="homeMain">
+
+  <!-- 境界卡片 -->
+  <section class="realm-card" id="realmCard">
+    <div class="realm-name" id="realmName">炼气期</div>
+    <div class="realm-sub" id="realmSub">吐纳天地灵气,初窥道途</div>
+    <div class="progress-block">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <div class="progress-label">
+        <span id="currentXiu">0.0</span>
+        <span class="progress-sep">/</span>
+        <span id="nextXiu">50.0</span> 修为
+        <span class="progress-pct" id="progressPct">0%</span>
+      </div>
+      <div class="progress-next" id="progressNext">距离筑基 50.0 修为</div>
+    </div>
+  </section>
+
+  <!-- 修炼操作 -->
+  <section class="cult-section">
+    <div class="section-title">今日修炼</div>
+    <div class="cult-grid">
+      <button class="cult-btn" data-type="meditation_focus">
+        <div class="cult-icon">禅</div>
+        <div class="cult-label">悟道</div>
+        <div class="cult-meta">专注 20 min<br>+0.5 修为</div>
+      </button>
+      <button class="cult-btn" data-type="body_forge">
+        <div class="cult-icon">体</div>
+        <div class="cult-label">锻体</div>
+        <div class="cult-meta">运动 30 min<br>+0.3 修为</div>
+      </button>
+      <button class="cult-btn" data-type="breath_qi">
+        <div class="cult-icon">气</div>
+        <div class="cult-label">行气</div>
+        <div class="cult-meta">呼吸 5 min<br>+0.1 修为</div>
+      </button>
+      <button class="cult-btn" data-type="sleep_rest">
+        <div class="cult-icon">静</div>
+        <div class="cult-label">静修</div>
+        <div class="cult-meta">睡眠 7h<br>+1.5 修为</div>
+      </button>
+      <button class="cult-btn" data-type="meditation_short">
+        <div class="cult-icon">坐</div>
+        <div class="cult-label">打坐</div>
+        <div class="cult-meta">番茄钟 5 min<br>+0.2 修为</div>
+      </button>
+      <button class="cult-btn" data-type="body_labor">
+        <div class="cult-icon">劳</div>
+        <div class="cult-label">搬砖</div>
+        <div class="cult-meta">体力 30 min<br>+0.15 修为</div>
+      </button>
+      <button class="cult-btn" data-type="expedition">
+        <div class="cult-icon">历</div>
+        <div class="cult-label">历练</div>
+        <div class="cult-meta">远足 2 h<br>+0.5 修为</div>
+      </button>
+    </div>
+  </section>
+
+  <!-- 四宫格统计 -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">今日</div>
+      <div class="stat-value" id="statToday">—</div>
+      <div class="stat-unit">修为</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">本周</div>
+      <div class="stat-value" id="statWeek">—</div>
+      <div class="stat-unit">修为</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">累计</div>
+      <div class="stat-value" id="statTotal">—</div>
+      <div class="stat-unit">修为</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">修炼</div>
+      <div class="stat-value" id="statLogs">—</div>
+      <div class="stat-unit">次</div>
+    </div>
+  </section>
+
+  <!-- 7 天折线 (SVG) -->
+  <section class="chart-card">
+    <div class="section-title">7 日修为走势图</div>
+    <svg id="chart" viewBox="0 0 320 100" preserveAspectRatio="none"></svg>
+    <div class="chart-axis" id="chartAxis"></div>
+  </section>
+
+  <!-- 历史 -->
+  <section class="hist-card">
+    <div class="section-title">修炼历史</div>
+    <ul class="hist-list" id="histList"></ul>
+  </section>
+
+  <!-- 功法卷轴 -->
+  <section class="scroll-card">
+    <div class="section-title">已得功法</div>
+    <ul class="scroll-list" id="scrollList"></ul>
+  </section>
+
+  <div class="footer-line">道友,路远,精进有恒。</div>
+</main>
+
+<!-- 自定义弹层 (修炼提交) -->
+<div class="modal-mask" id="modalMask" style="display:none">
+  <div class="modal">
+    <div class="modal-title" id="modalTitle">悟道修炼</div>
+    <div class="modal-sub" id="modalSub">本次修炼时长 (分钟)</div>
+    <input type="number" id="durationInput" class="modal-input" min="1" max="1439" value="20">
+    <textarea id="noteInput" class="modal-textarea" placeholder="备注 (可选)"></textarea>
+    <div class="modal-meta" id="modalMeta">完成后预计 +0.5 修为</div>
+    <div class="modal-actions">
+      <button class="ghost-btn big" id="modalCancel">放弃</button>
+      <button class="primary-btn big" id="modalSubmit">完成修炼</button>
+    </div>
+  </div>
+</div>
+
+<!-- 道号改名弹层 -->
+<div class="modal-mask" id="nameMask" style="display:none">
+  <div class="modal">
+    <div class="modal-title">设置道号</div>
+    <div class="modal-sub">1-20 字,如 "清虚子"</div>
+    <input type="text" id="nameInput" class="modal-input" maxlength="20" placeholder="道友">
+    <div class="modal-actions">
+      <button class="ghost-btn big" id="nameCancel">取消</button>
+      <button class="primary-btn big" id="nameSubmit">确认</button>
+    </div>
+  </div>
+</div>
+
+<!-- 突破仪式弹层 -->
+<div class="ceremony-mask" id="ceremonyMask" style="display:none">
+  <div class="ceremony">
+    <div class="ceremony-light"></div>
+    <div class="ceremony-seal" id="ceremonySeal">境</div>
+    <div class="ceremony-realm" id="ceremonyRealm">筑基</div>
+    <div class="ceremony-msg" id="ceremonyMsg">稳固根基,修道之始</div>
+    <div class="ceremony-skill" id="ceremonySkill">《太清静心诀》</div>
+    <button class="primary-btn big" id="ceremonyVideoBtn" style="margin-bottom:10px;background:#e5c878;">
+      🎬 分享突破时刻(30 秒视频)
+    </button>
+    <div id="ceremonyVideoStatus" style="font-size:12px;color:var(--text-sub);margin-bottom:14px;display:none;"></div>
+    <button class="primary-btn big" id="ceremonyContinue">继续精进 →</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast" style="display:none"></div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

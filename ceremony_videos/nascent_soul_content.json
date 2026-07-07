@@ -1,0 +1,32 @@
+{
+  "title": "元婴突破·阴神出窍",
+  "desc": "「道途」元婴突破·阴神出窍 - 健康修仙模拟器突破仪式纪念",
+  "tags": [
+    "道途",
+    "元婴",
+    "突破",
+    "健康修仙",
+    "道途",
+    "突破时刻"
+  ],
+  "segments": [
+    {
+      "id": 1,
+      "subtitle": "三百日精进,阴神可出",
+      "narration": "三百日精进,阴神可出。",
+      "image_prompt": "Chinese ink painting, ethereal shadow figure emerging from body silhouette, purple mist, vertical 9:16 ink green background, mystical, no emoji, no English"
+    },
+    {
+      "id": 2,
+      "subtitle": "神游太虚,万物皆映",
+      "narration": "神游太虚,万物皆映。",
+      "image_prompt": "Chinese ink painting style, small spirit figure floating above vast cosmic landscape, mountains and rivers far below, soft purple and gold, vertical 9:16, no emoji, no English"
+    },
+    {
+      "id": 3,
+      "subtitle": "恭喜道友,元婴已成",
+      "narration": "恭喜道友,元婴已成!",
+      "image_prompt": "Chinese ink painting breakthrough, large purple and gold seal character, dark ink green background, vertical 9:16 epic, glowing aura, no emoji, no English"
+    }
+  ]
+}

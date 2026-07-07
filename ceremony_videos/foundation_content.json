@@ -1,0 +1,33 @@
+{
+  "title": "筑基突破·一念清明",
+  "desc": "「道途」筑基突破·一念清明 - 健康修仙模拟器突破仪式纪念",
+  "tags": [
+    "道途",
+    "修仙",
+    "筑基",
+    "突破",
+    "健康修仙",
+    "道途",
+    "突破时刻"
+  ],
+  "segments": [
+    {
+      "id": 1,
+      "subtitle": "道友,此刻灵气充沛,可要筑基?",
+      "narration": "道友,此刻灵气充沛,可要筑基?",
+      "image_prompt": "Chinese ink painting style, a lone daoist cultivator standing on mountain peak under starry night, ink green background #2c4a3e, gold energy aura surrounding body, vertical mobile format 9:16, mist and cloud at bottom, dramatic atmosphere, no emoji, no English text"
+    },
+    {
+      "id": 2,
+      "subtitle": "精进七七四十九日,根基将立",
+      "narration": "精进七七四十九日,根基将立。",
+      "image_prompt": "Chinese ink painting style, golden energy pillars rising from ground into clouds, mountain silhouette in distance, vertical mobile format 9:16, dramatic dusk atmosphere, soft golden particles, no emoji, no English text"
+    },
+    {
+      "id": 3,
+      "subtitle": "恭喜道友,筑基已成",
+      "narration": "恭喜道友,筑基已成!",
+      "image_prompt": "Chinese ink painting style, large glowing Chinese seal character with golden light beams breakthrough moment, dark ink green background, jade mountain silhouette, epic atmosphere, vertical mobile format 9:16, particles like floating lotus petals, no emoji, no English text"
+    }
+  ]
+}

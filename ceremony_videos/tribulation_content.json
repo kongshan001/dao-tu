@@ -1,0 +1,32 @@
+{
+  "title": "渡劫飞升·九霄雷音",
+  "desc": "「道途」渡劫飞升·九霄雷音 - 健康修仙模拟器突破仪式纪念",
+  "tags": [
+    "道途",
+    "渡劫",
+    "飞升",
+    "健康修仙",
+    "道途",
+    "突破时刻"
+  ],
+  "segments": [
+    {
+      "id": 1,
+      "subtitle": "千年修道,今朝天劫至",
+      "narration": "千年修道,今朝天劫至。",
+      "image_prompt": "Chinese ink painting, dark thunderstorm sky with lightning strikes, mountain peak silhouette, vertical 9:16 ink green background, dramatic red-black sky, no emoji, no English"
+    },
+    {
+      "id": 2,
+      "subtitle": "吾当以道破劫",
+      "narration": "吾当以道破劫!",
+      "image_prompt": "Chinese ink painting, lone daoist figure facing storm, sword raised, lightning strikes, vertical 9:16, heroic atmosphere, no emoji, no English"
+    },
+    {
+      "id": 3,
+      "subtitle": "恭喜道友,飞升仙界",
+      "narration": "恭喜道友,飞升仙界!",
+      "image_prompt": "Chinese ink painting breakthrough to ascension, large red seal character, brilliant white light from above, vertical 9:16, dark ink green background, epic ultimate moment, no emoji, no English"
+    }
+  ]
+}

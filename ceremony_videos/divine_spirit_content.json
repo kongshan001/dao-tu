@@ -1,0 +1,32 @@
+{
+  "title": "化神突破·通达神明",
+  "desc": "「道途」化神突破·通达神明 - 健康修仙模拟器突破仪式纪念",
+  "tags": [
+    "道途",
+    "化神",
+    "突破",
+    "健康修仙",
+    "道途",
+    "突破时刻"
+  ],
+  "segments": [
+    {
+      "id": 1,
+      "subtitle": "九转丹成,神将化也",
+      "narration": "九转丹成,神将化也。",
+      "image_prompt": "Chinese ink painting, glowing spirit rising like phoenix, ethereal teal light, vertical 9:16 ink green background, sacred, no emoji, no English"
+    },
+    {
+      "id": 2,
+      "subtitle": "虚室生白,通达神明",
+      "narration": "虚室生白,通达神明。",
+      "image_prompt": "Chinese ink painting, vast white void with single daoist silhouette, vertical 9:16, ink green background, cosmic atmosphere, no emoji, no English"
+    },
+    {
+      "id": 3,
+      "subtitle": "恭喜道友,化神已成",
+      "narration": "恭喜道友,化神已成!",
+      "image_prompt": "Chinese ink painting breakthrough, large teal and gold seal character, vertical 9:16, dark ink green background, epic dramatic moment, glowing aura, no emoji, no English"
+    }
+  ]
+}

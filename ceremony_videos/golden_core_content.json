@@ -1,0 +1,32 @@
+{
+  "title": "金丹突破·神识初成",
+  "desc": "「道途」金丹突破·神识初成 - 健康修仙模拟器突破仪式纪念",
+  "tags": [
+    "道途",
+    "修仙",
+    "金丹",
+    "健康修仙",
+    "道途",
+    "突破时刻"
+  ],
+  "segments": [
+    {
+      "id": 1,
+      "subtitle": "百日筑基毕,金丹将凝",
+      "narration": "百日筑基毕,金丹将凝。",
+      "image_prompt": "Chinese ink painting style, glowing golden pill floating above ceremonial altar, mountain temple silhouette in background, ink green background, vertical 9:16, sacred atmosphere, no emoji, no English"
+    },
+    {
+      "id": 2,
+      "subtitle": "神识一出,内观己身",
+      "narration": "神识一出,内观己身。",
+      "image_prompt": "Chinese ink painting style, ethereal spirit silhouette rising from meditation figure, soft golden glow, vertical 9:16 ink green background, mystical atmosphere, no emoji, no English"
+    },
+    {
+      "id": 3,
+      "subtitle": "恭喜道友,金丹已成",
+      "narration": "恭喜道友,金丹已成!",
+      "image_prompt": "Chinese ink painting breakthrough scene, bright golden light explosion center, dark ink green background, vertical 9:16 epic dramatic moment, large gold seal character, no emoji, no English text"
+    }
+  ]
+}
